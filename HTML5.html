@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web-programozás-1 Előadás Házi feladat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Web-programozás-1 Előadás Házi feladat</h1>
+    </header>
+    <nav class="menu">
+        <a href="index.html">Táblázat menü</a>
+        <a href="HTML5.html"class="active">HTML5 menü</a>
+        <a href="menu3.html">Menü3</a>
+    </nav>
+    <div class="container">
+        <aside>
+            <p>Oldalsáv tartalma</p>
+        </aside>
+        <div class="content">
+            <h2>Web storage</h2>
+            <script>
+                if (sessionStorage.hits) {
+                    sessionStorage.hits = Number(sessionStorage.hits) + 1;
+                }
+                else {
+                    sessionStorage.hits = 1;
+                }
+                document.write("Session hit-ek száma:" + sessionStorage.hits);
+            </script>
+            <br>
+            <script>
+                if (localStorage.hits) {
+                    localStorage.hits = Number(localStorage.hits) + 1;
+                }
+                else {
+                    localStorage.hits = 1;
+                }
+                document.write("Local hit-ek száma:" + localStorage.hits);
+            </script>
+            <div class="storage">
+                <table id="storagetable">
+                    <thead>
+                        <tr>
+                            <th>Storage típusa</th>
+                            <th>Érték</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Local</td>
+                            <td id="localstorage">0</td>
+                        </tr>
+                        <tr>
+                            <td>Session</td>
+                            <td id="sessionstorage">0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Frissítse az oldalt, a számok növeléséhez!</p>
+            <!--Clear még hiányzik-->
+            <h2>Web workers</h2>
+            
+        </div>
+
+    </div>
+    <footer>
+        <p>Nagy Márk - VD5LHD és Pintér Mátyás - WYXPLR</p>
+    </footer>
+</body>
+</html>
