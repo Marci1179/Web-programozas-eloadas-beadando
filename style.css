@@ -4,75 +4,163 @@ html, body {
     display: flex;
     flex-direction: column;
 }
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
+
 .menu {
     display: flex;
     background-color: #333;
     padding: 10px 0;
 }
+
 .menu a {
     color: rgb(255, 255, 255);
     text-decoration: none;
     padding: 10px 20px;
     transition: background 0.3s;
 }
+
 .menu a:hover {
     background-color: #305740;
 }
+
 .menu .active {
     background-color: #00ae49;
 }
+
 header, footer, aside, nav, .content {
     padding: 20px;
 }
+
 header {
     background: #858883;
     text-align: center;
 }
+
 footer {
     background: #333;
     color: white;
     text-align: center;
     padding: 10px;
-    position: fixed;
-    bottom: 0;
     width: 100%;
-
+    margin-top: auto;
 }
+
 .container {
     display: flex;
     flex: 1;
+    width: 100%;
+    height: auto;
 }
+
 aside {
     width: 20%;
     background: #858883;
     padding: 20px;
-    border-right: #333;
-    border-right-width: 3px;
-    border-right-style: solid;
-    height: 100%;
+    border-right: 3px solid #333;
 }
+
 .content {
     width: 80%;
     background: #858883;
-    height: 100%;
     padding: 20px;
+    flex-grow: 1;
+    
 }
+
+.employee-form {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.employee-form div {
+    margin-bottom: 10px;
+}
+
+.employee-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.employee-form input {
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-action-buttons {
+    text-align: right;
+}
+
+.form-action-buttons input[type="submit"] {
+    width: 100%;
+    background: #00ae49;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form-action-buttons input[type="submit"]:hover {
+    background: #008a3a;
+}
+
 h1 {
     color: #005603;
 }
-table{
+
+table {
     width: 100%;
     border-collapse: collapse;
-    
 }
+
 th, td {
     border: 3px solid #333;
+    padding: 10px;
+    text-align: left;
 }
+
 th {
     background-color: #00ae49;
+    color: white;
+}
+
+.localtorol {
+    width: 30%;
+    background: #00ae49;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.localtorol:hover {
+    background: #008a3a;
+}
+
+.validation-error {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 5px;
+}
+
+.csillag {
+    color: red;
 }

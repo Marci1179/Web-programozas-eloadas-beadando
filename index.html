@@ -6,7 +6,6 @@
     <title>Web-programozás-1 Előadás Házi feladat</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-
 </head>
 <body>
     <header>
@@ -21,35 +20,31 @@
         <aside>
             <p>Oldalsáv tartalma</p>
         </aside>
-        
         <div class="content">
             <div class="employee-form">
                 <form onsubmit="event.preventDefault();onFormSubmit();">
-                <div>
-                <label class="validation-error hide"></label>
-                <label>Full Name*</label><label class="validation-error hide"
-                id="fullNameValidationError">This field is required.</label>
-                <input type="text" name="fullName" id="fullName">
-                </div>
-                <div>
-                <label>Email Id</label>
-                <input type="text" name="email" id="email">
-                </div>
-                <div>
-                <label>Salary</label>
-                <input type="text" name="salary" id="salary">
-                </div>
-                <div>
-                <label>City</label>
-                <input type="text" name="city" id="city">
-                </div>
-                <div class="form-action-buttons">
-                <input type="submit" value="Submit">
-                </div>
+                    <div>
+                        <label>Név<span class="csillag">*</span></label>
+                        <input type="text" name="nev" id="nev">
+                        <label class="validation-error" id="nevellenorzes">*Ez a mező kötelező</label>
+                    </div>
+                    <div>
+                        <label>Életkor</label>
+                        <input type="text" name="eletkor" id="eletkor">
+                    </div>
+                    <div>
+                        <label>Telefonszám</label>
+                        <input type="text" name="tszam" id="tszam">
+                    </div>
+                    <div>
+                        <label>E-mail</label>
+                        <input type="text" name="email" id="email">
+                    </div>
+                        <div class="form-action-buttons">
+                        <input type="submit" value="Submit">
+                    </div>
                 </form>
-                </div>
-                <br/>
-                
+            </div>
             <h1>CRUD táblázat</h1>
             <div class="data-table">
                 <table id="table">
@@ -63,7 +58,6 @@
                         </tr>
                     </thead>
                     <tbody>
-
                     </tbody>
                 </table>
             </div>

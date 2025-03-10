@@ -1,3 +1,4 @@
+//Táblázat menü Funkciói
 var selectedIndex = null;
 var array = new Array();
 function onFormSubmit() {
@@ -10,17 +11,18 @@ function onFormSubmit() {
         resetForm();
     }
 }
+
 function readFormData() {
     var formData = {};
-    formData["fullName"] = document.getElementById("fullName").value;
+    formData["nev"] = document.getElementById("nev").value;
+    formData["eletkor"] = document.getElementById("eletkor").value;
+    formData["tszam"] = document.getElementById("tszam").value;
     formData["email"] = document.getElementById("email").value;
-    formData["salary"] = document.getElementById("salary").value;
-    formData["city"] = document.getElementById("city").value;
     return formData;
 }
 
 function insertNewRecord(data) {
-    array[array.length]= {"fullName":data.fullName,"email":data.email,"salary":data.salary,"city":data.city};
+    array[array.length]= {"nev":data.nev,"eletkor":data.eletkor,"tszam":data.tszam,"email":data.email};
     printArray();
 }
 
@@ -31,55 +33,88 @@ function printArray(){
     for (i = 0; i < array.length; i++) {
         newRow = table.insertRow(table.length);
         cell1 = newRow.insertCell(0);
-        cell1.innerHTML = array[i].fullName;
+        cell1.innerHTML = array[i].nev;
         cell2 = newRow.insertCell(1);
-        cell2.innerHTML = array[i].email;
+        cell2.innerHTML = array[i].eletkor;
         cell3 = newRow.insertCell(2);
-        cell3.innerHTML = array[i].salary;
+        cell3.innerHTML = array[i].tszam;
         cell4 = newRow.insertCell(3);
-        cell4.innerHTML = array[i].city;
+        cell4.innerHTML = array[i].email;
         cell4 = newRow.insertCell(4);
         cell4.innerHTML = '<a onClick="onEdit('+i+')">Edit</a>' + '<a onClick="onDelete('+i+')">Delete</a>';
     }
 }
 
 function resetForm() {
-    document.getElementById("fullName").value = "";
+    document.getElementById("nev").value = "";
+    document.getElementById("eletkor").value = "";
+    document.getElementById("tszam").value = "";
     document.getElementById("email").value = "";
-    document.getElementById("salary").value = "";
-    document.getElementById("city").value = "";
     selectedIndex=null;
 }
+
 function onEdit(index) {
-    document.getElementById("fullName").value = array[index].fullName;
+    document.getElementById("nev").value = array[index].nev;
+    document.getElementById("eletkor").value = array[index].eletkor;
+    document.getElementById("tszam").value = array[index].tszam;
     document.getElementById("email").value = array[index].email;
-    document.getElementById("salary").value = array[index].salary;
-    document.getElementById("city").value = array[index].city;
     selectedIndex=index;
 }
+
 function updateRecord(formData) {
-    array[selectedIndex].fullName=formData.fullName;
+    array[selectedIndex].nev=formData.nev;
+    array[selectedIndex].eletkor=formData.eletkor;
+    array[selectedIndex].tszam=formData.tszam;
     array[selectedIndex].email=formData.email;
-    array[selectedIndex].salary=formData.salary;
-    array[selectedIndex].city=formData.city;
     printArray();
 }
+
 function onDelete(index) {
-    if (confirm('Are you sure to delete this record ?')) {
+    if (confirm('Biztosan törölni szeretnéd ezt a rekordot?')) {
         array.splice(index, 1); // Deleting the entry with the specified index
         resetForm();
         printArray();
     }
 }
+
 function validate() {
     isValid = true;
-    if (document.getElementById("fullName").value == "") {
+    if (document.getElementById("nev").value == "") {
         isValid = false;
-        document.getElementById("fullNameValidationError").classList.remove("hide");
+        document.getElementById("nevellenorzes").classList.remove("hide");
     } else {
         isValid = true;
-        if (!document.getElementById("fullNameValidationError").classList.contains("hide"))
-            document.getElementById("fullNameValidationError").classList.add("hide");
+        if (!document.getElementById("nevellenorzes").classList.contains("hide"))
+            document.getElementById("nevellenorzes").classList.add("hide");
     }
     return isValid;
+}
+
+//WebStorage
+document.addEventListener("DOMContentLoaded", function() {
+    // SessionStorage növelése
+    if (sessionStorage.hits) {
+        sessionStorage.hits = Number(sessionStorage.hits) + 1;
+    } else {
+        sessionStorage.hits = 1;
+    }
+
+    // LocalStorage növelése
+    if (localStorage.hits) {
+        localStorage.hits = Number(localStorage.hits) + 1;
+    } else {
+        localStorage.hits = 1;
+    }
+
+    // Értékek kiírása a táblázatba
+    document.getElementById("sessionstorage").textContent = sessionStorage.hits;
+    document.getElementById("localstorage").textContent = localStorage.hits;
+});
+
+function clearStorage() {
+    sessionStorage.clear();
+    localStorage.clear();
+    location.reload();
+    document.getElementById("sessionstorage").textContent = sessionStorage.hits;
+    document.getElementById("localstorage").textContent = localStorage.hits;
 }

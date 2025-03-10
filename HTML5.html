@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web-programozás-1 Előadás Házi feladat</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <header>
@@ -21,25 +22,6 @@
         </aside>
         <div class="content">
             <h2>Web storage</h2>
-            <script>
-                if (sessionStorage.hits) {
-                    sessionStorage.hits = Number(sessionStorage.hits) + 1;
-                }
-                else {
-                    sessionStorage.hits = 1;
-                }
-                document.write("Session hit-ek száma:" + sessionStorage.hits);
-            </script>
-            <br>
-            <script>
-                if (localStorage.hits) {
-                    localStorage.hits = Number(localStorage.hits) + 1;
-                }
-                else {
-                    localStorage.hits = 1;
-                }
-                document.write("Local hit-ek száma:" + localStorage.hits);
-            </script>
             <div class="storage">
                 <table id="storagetable">
                     <thead>
@@ -60,12 +42,10 @@
                     </tbody>
                 </table>
             </div>
+            <button class="localtorol" onclick="clearStorage()">LocalStorage törlése</button>
             <p>Frissítse az oldalt, a számok növeléséhez!</p>
-            <!--Clear még hiányzik-->
             <h2>Web workers</h2>
-            
         </div>
-
     </div>
     <footer>
         <p>Nagy Márk - VD5LHD és Pintér Mátyás - WYXPLR</p>
