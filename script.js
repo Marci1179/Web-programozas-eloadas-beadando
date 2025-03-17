@@ -99,14 +99,12 @@ document.addEventListener("DOMContentLoaded", function() {
         sessionStorage.hits = 1;
     }
 
-    // LocalStorage növelése
     if (localStorage.hits) {
         localStorage.hits = Number(localStorage.hits) + 1;
     } else {
         localStorage.hits = 1;
     }
 
-    // Értékek kiírása a táblázatba
     document.getElementById("sessionstorage").textContent = sessionStorage.hits;
     document.getElementById("localstorage").textContent = localStorage.hits;
 });
@@ -118,3 +116,37 @@ function clearStorage() {
     document.getElementById("sessionstorage").textContent = sessionStorage.hits;
     document.getElementById("localstorage").textContent = localStorage.hits;
 }
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const tableBody = document.querySelector("#dataTable tbody");
+    let tableData = [];
+
+    document.querySelectorAll("#dataTable tr").forEach(tr => {
+        let row = Array.from(tr.children).map(td => Number(td.textContent));
+        tableData.push(row);
+        tr.addEventListener("click", () => updateChart(row));
+    });
+
+    const ctx = document.getElementById("chartCanvas").getContext("2d");
+    let chart = new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: ["Oszlop 1", "Oszlop 2", "Oszlop 3", "Oszlop 4", "Oszlop 5"],
+            datasets: [{
+                label: "Kiválasztott sor adatai",
+                data: [],
+                borderColor: "#005603",
+                backgroundColor: "#005603",
+            }]
+        },
+        options: {
+            responsive: true,
+        }
+    });
+
+    function updateChart(rowData) {
+        chart.data.datasets[0].data = rowData;
+        chart.update();
+    }
+});
