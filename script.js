@@ -71,7 +71,7 @@ function updateRecord(formData) {
 
 function onDelete(index) {
     if (confirm('Biztosan törölni szeretnéd ezt a rekordot?')) {
-        array.splice(index, 1); // Deleting the entry with the specified index
+        array.splice(index, 1);
         resetForm();
         printArray();
     }
@@ -92,7 +92,6 @@ function validate() {
 
 //WebStorage
 document.addEventListener("DOMContentLoaded", function() {
-    // SessionStorage növelése
     if (sessionStorage.hits) {
         sessionStorage.hits = Number(sessionStorage.hits) + 1;
     } else {
@@ -117,7 +116,7 @@ function clearStorage() {
     document.getElementById("localstorage").textContent = localStorage.hits;
 }
 
-
+//ChartJS
 document.addEventListener("DOMContentLoaded", function () {
     const tableBody = document.querySelector("#dataTable tbody");
     let tableData = [];
@@ -136,12 +135,37 @@ document.addEventListener("DOMContentLoaded", function () {
             datasets: [{
                 label: "Kiválasztott sor adatai",
                 data: [],
-                borderColor: "#005603",
-                backgroundColor: "#005603",
+                borderColor: "#00ae49",
+                backgroundColor: "#00ae49",
             }]
         },
         options: {
             responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: "#005603"
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        color: "#005603"
+                    },
+                    ticks: {
+                        color: "#005603"
+                    }
+                },
+                y: {
+                    grid: {
+                        color: "#005603"
+                    },
+                    ticks: {
+                        color: "#005603"
+                    }
+                }
+            }
         }
     });
 

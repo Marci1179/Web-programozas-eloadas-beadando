@@ -181,3 +181,7 @@ th {
 .ajax-button:hover {
     background: #008a3a;
 }
+
+#chartCanvas {
+    background-color: #d6ffd9;
+}
