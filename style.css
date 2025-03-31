@@ -153,7 +153,7 @@ th {
     margin-right: 10px;
 }
 
-.localtorol, .delmod:hover {
+.localtorol:hover, .delmod:hover {
     background: #008a3a;
 }
 
@@ -184,4 +184,33 @@ th {
 
 #chartCanvas {
     background-color: #d6ffd9;
+}
+
+.jatekgomb {
+    width: 15%;
+    background: #00ae49;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.jatekgomb:hover {
+    background: #008a3a;
+}
+
+#message-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 42px;
+    display: none;
+    border-radius: 10px;
 }

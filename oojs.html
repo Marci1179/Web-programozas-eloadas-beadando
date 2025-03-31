@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tili-Toli Játék</title>
+    
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .grid-container { display: grid; grid-template-columns: repeat(4, 60px); gap: 5px; justify-content: center; margin-top: 20px; }
+        .tile { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 24px; background-color: #d6ffd9; border: 1px solid black; cursor: pointer; }
+        .empty { background-color: #d3d5d1; cursor: default; }
+    </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Web-programozás-1 Előadás Házi feladat</h1>
+</header>
+<nav class="menu">
+    <a href="index.html">Táblázat menü</a>
+    <a href="HTML5.html">HTML5 menü</a>
+    <a href="chartjs.html">ChartJS menü</a>
+    <a href="Ajax.html">AJAX menü</a>
+    <a href="oojs.html" class="active">OOJS menü</a>
+</nav>
+<div class="container">
+    <div class="content">
+        <h1>Tili-Toli Játék</h1>
+        <div id="game-board" class="grid-container"></div>
+        <br>
+        <button onclick="game.shuffleTiles()" class="jatekgomb">Keverés</button>
+        <button onclick="game.checkWin()" class="jatekgomb">Ellenőrzés</button>
+        <button onclick="game.solveGame()" class="jatekgomb">Szabad a gazda</button>
+        <div id="message-box"></div>
+        <script src="oojs.js"></script>
+    </div>
+</div>
+<footer>
+    <p>Nagy Márk - VD5LHD és Pintér Mátyás - WYXPLR</p>
+</footer>
+
+</body>
+</html>
