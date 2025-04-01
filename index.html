@@ -47,19 +47,38 @@
             </div>
             <h1>CRUD táblázat</h1>
             <div class="data-table">
+                <input type="text" id="searchInput" placeholder="Keresés az egész táblázatban...">
+                <button onclick="searchTable()">Keresés</button>
+                <button onclick="clearSearch()">Törlés</button>
                 <table id="table">
                     <thead>
                         <tr>
-                            <th>Név</th>
-                            <th>Életkor</th>
-                            <th>Telefonszám</th>
-                            <th>E-mail</th>
-                            <th>Gombok</th>
+                            <th>Név 
+                                
+                                <button onclick="sortTable(0, true)" class="crud-manip">ASC</button>
+                                <button onclick="sortTable(0, false)" class="crud-manip">DESC</button>            
+                            </th>
+                            <th>Életkor
+                                
+                                <button onclick="sortTable(1, true)" class="crud-manip">ASC</button>
+                                <button onclick="sortTable(1, false)" class="crud-manip">DESC</button></th>
+                            <th>Telefonszám <br>
+                                
+                                <button onclick="sortTable(2, true)" class="crud-manip">ASC</button>
+                                <button onclick="sortTable(2, false)" class="crud-manip">DESC</button></th>
+                            <th>E-mail <br>
+                                
+                                <button onclick="sortTable(3, true)" class="crud-manip">ASC</button>
+                                <button onclick="sortTable(3, false)" class="crud-manip">DESC</button></th>
+                            <th>Gombok <br>
                         </tr>
                     </thead>
                     <tbody>
                     </tbody>
                 </table>
+                <script>
+
+                </script>
             </div>
         </div>
     </div>

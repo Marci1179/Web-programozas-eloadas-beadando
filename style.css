@@ -214,3 +214,10 @@ th {
     display: none;
     border-radius: 10px;
 }
+
+.crud-manip {
+    margin-top: 10px;
+    margin-right: 6px;
+    margin-left: 0px;
+
+}

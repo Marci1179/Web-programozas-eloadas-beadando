@@ -174,3 +174,51 @@ document.addEventListener("DOMContentLoaded", function () {
         chart.update();
     }
 });
+
+
+                    
+function sortTable(columnIndex, ascending) {
+    let table = document.getElementById("table");
+    let rows = Array.from(table.rows).slice(1);
+    
+    rows.sort((rowA, rowB) => {
+        let valA = rowA.cells[columnIndex].innerText;
+        let valB = rowB.cells[columnIndex].innerText;
+        
+        if (!isNaN(valA) && !isNaN(valB)) {
+            valA = parseFloat(valA);
+            valB = parseFloat(valB);
+        }
+        return ascending ? (valA > valB ? 1 : -1) : (valA < valB ? 1 : -1);
+    });
+    
+    rows.forEach(row => table.appendChild(row));
+}
+
+function searchTable() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let table = document.getElementById("table");
+    let rows = table.getElementsByTagName("tr");
+    
+    for (let i = 1; i < rows.length; i++) {
+        let cells = rows[i].getElementsByTagName("td");
+        let match = false;
+        for (let cell of cells) {
+            if (cell.innerText.toLowerCase().includes(input)) {
+                match = true;
+                break;
+            }
+        }
+        rows[i].style.display = match ? "" : "none";
+    }
+}
+
+function clearSearch() {
+    document.getElementById("searchInput").value = "";
+    let table = document.getElementById("table");
+    let rows = table.getElementsByTagName("tr");
+    
+    for (let i = 1; i < rows.length; i++) {
+        rows[i].style.display = "";
+    }
+}
