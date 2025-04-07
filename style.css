@@ -86,7 +86,7 @@ aside {
 }
 
 .employee-form label {
-    display: block;
+
     font-weight: bold;
     margin-bottom: 5px;
 }
@@ -157,12 +157,6 @@ th {
     background: #008a3a;
 }
 
-.validation-error {
-    color: red;
-    font-size: 0.8em;
-    margin-top: 5px;
-}
-
 .csillag {
     color: red;
 }
@@ -215,9 +209,38 @@ th {
     border-radius: 10px;
 }
 
-.crud-manip {
+.crud-ord {
+    width: 25%;
+    background: #d6ffd9;
+    color: black;
+    padding: 2px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
     margin-top: 10px;
-    margin-right: 6px;
-    margin-left: 0px;
-
 }
+
+.crud-search {
+
+    width: 5%;
+    background: #008a3a;
+    color: white;
+   
+    padding: 2px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+label.validation-error{
+    color: red;
+    margin-left: 5px;
+}
+
+.hide{
+    display:none;
+}
+    

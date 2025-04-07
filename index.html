@@ -24,61 +24,62 @@
             <div class="employee-form">
                 <form onsubmit="event.preventDefault();onFormSubmit();">
                     <div>
-                        <label>Név<span class="csillag">*</span></label>
+                        <label>Név<span class="csillag">*</span></label><label class="validation-error hide" id="nevValidationError">(Kötelező)</label>
                         <input type="text" name="nev" id="nev">
-                        <label class="validation-error" id="nevellenorzes">*Ez a mező kötelező</label>
                     </div>
                     <div>
-                        <label>Életkor</label>
+                        <label>Életkor<span class="csillag">*</span></label><label class="validation-error hide" id="eletkorValidationError">(Szám)</label>
                         <input type="text" name="eletkor" id="eletkor">
                     </div>
                     <div>
-                        <label>Telefonszám</label>
+                        <label>Telefonszám<span class="csillag">*</span></label><label class="validation-error hide" id="tszamValidationError">(Szám, max. 11 hosszú)</label>
                         <input type="text" name="tszam" id="tszam">
                     </div>
                     <div>
-                        <label>E-mail</label>
+                        <label>E-mail<span class="csillag">*</span></label><label class="validation-error hide" id="emailValidationError">(Min. 5 hosszú, tartalmazza: @ és .)</label>
                         <input type="text" name="email" id="email">
                     </div>
-                    <div class="form-action-buttons">
+                    <div  class="form-action-buttons">
                         <input type="submit" value="Submit">
                     </div>
                 </form>
             </div>
             <h1>CRUD táblázat</h1>
-            <div class="data-table">
+            <div class = "employees-table">
                 <input type="text" id="searchInput" placeholder="Keresés az egész táblázatban...">
-                <button onclick="searchTable()">Keresés</button>
-                <button onclick="clearSearch()">Törlés</button>
-                <table id="table">
+                <button onclick="searchTable()" class="crud-search">Keresés</button>
+                <button onclick="clearSearch()" class="crud-search">Törlés</button>
+                <p></p>
+                <table class="list" id="employeeList">
                     <thead>
                         <tr>
-                            <th>Név 
-                                
-                                <button onclick="sortTable(0, true)" class="crud-manip">ASC</button>
-                                <button onclick="sortTable(0, false)" class="crud-manip">DESC</button>            
+                            <th>
+                                Név
+                                <button onclick="sortTable(0, true)" class="crud-ord">ASC</button>
+                                <button onclick="sortTable(0, false)" class="crud-ord">DESC</button>
                             </th>
-                            <th>Életkor
-                                
-                                <button onclick="sortTable(1, true)" class="crud-manip">ASC</button>
-                                <button onclick="sortTable(1, false)" class="crud-manip">DESC</button></th>
-                            <th>Telefonszám <br>
-                                
-                                <button onclick="sortTable(2, true)" class="crud-manip">ASC</button>
-                                <button onclick="sortTable(2, false)" class="crud-manip">DESC</button></th>
-                            <th>E-mail <br>
-                                
-                                <button onclick="sortTable(3, true)" class="crud-manip">ASC</button>
-                                <button onclick="sortTable(3, false)" class="crud-manip">DESC</button></th>
-                            <th>Gombok <br>
+                            <th>
+                                Életkor
+                                <button onclick="sortTable(1, true)" class="crud-ord">ASC</button>
+                                <button onclick="sortTable(1, false)" class="crud-ord">DESC</button>
+                            </th>
+                            <th>
+                                Telefonszám
+                                <button onclick="sortTable(2, true)" class="crud-ord">ASC</button>
+                                <button onclick="sortTable(2, false)" class="crud-ord">DESC</button>
+                            </th>
+                            <th>
+                                E-mail
+                                <button onclick="sortTable(3, true)" class="crud-ord">ASC</button>
+                                <button onclick="sortTable(3, false)" class="crud-ord">DESC</button>
+                            </th>
+                            <th>Gombok</th>
                         </tr>
                     </thead>
                     <tbody>
+        
                     </tbody>
                 </table>
-                <script>
-
-                </script>
             </div>
         </div>
     </div>

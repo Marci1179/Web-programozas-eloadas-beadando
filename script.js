@@ -1,6 +1,9 @@
 //Táblázat menü Funkciói
 var selectedIndex = null;
 var array = new Array();
+
+var selectedIndex = null;
+var array = new Array();
 function onFormSubmit() {
     if (validate()) {
         var formData = readFormData();
@@ -11,7 +14,6 @@ function onFormSubmit() {
         resetForm();
     }
 }
-
 function readFormData() {
     var formData = {};
     formData["nev"] = document.getElementById("nev").value;
@@ -27,7 +29,7 @@ function insertNewRecord(data) {
 }
 
 function printArray(){
-    var table = document.getElementById("table").getElementsByTagName('tbody')[0];
+    var table = document.getElementById("employeeList").getElementsByTagName('tbody')[0];
     table.innerHTML="";
     var newRow;
     for (i = 0; i < array.length; i++) {
@@ -52,7 +54,6 @@ function resetForm() {
     document.getElementById("email").value = "";
     selectedIndex=null;
 }
-
 function onEdit(index) {
     document.getElementById("nev").value = array[index].nev;
     document.getElementById("eletkor").value = array[index].eletkor;
@@ -60,7 +61,6 @@ function onEdit(index) {
     document.getElementById("email").value = array[index].email;
     selectedIndex=index;
 }
-
 function updateRecord(formData) {
     array[selectedIndex].nev=formData.nev;
     array[selectedIndex].eletkor=formData.eletkor;
@@ -68,27 +68,63 @@ function updateRecord(formData) {
     array[selectedIndex].email=formData.email;
     printArray();
 }
-
 function onDelete(index) {
-    if (confirm('Biztosan törölni szeretnéd ezt a rekordot?')) {
-        array.splice(index, 1);
+    if (confirm('Are you sure to delete this record ?')) {
+        array.splice(index, 1); // Deleting the entry with the specified index
         resetForm();
         printArray();
     }
 }
-
 function validate() {
-    isValid = true;
-    if (document.getElementById("nev").value == "") {
+    let isValid = true;
+
+    // Név validálás
+    const nevInput = document.getElementById("nev");
+    if (nevInput.value.trim() === "") {
         isValid = false;
-        document.getElementById("nevellenorzes").classList.remove("hide");
+        document.getElementById("nevValidationError").classList.remove("hide");
     } else {
-        isValid = true;
-        if (!document.getElementById("nevellenorzes").classList.contains("hide"))
-            document.getElementById("nevellenorzes").classList.add("hide");
+        document.getElementById("nevValidationError").classList.add("hide");
     }
+
+    // Telefonszám validálás
+    const tszamInput = document.getElementById("tszam").value.trim();
+    const tszamRegex = /^\d{1,11}$/;
+    if (tszamInput !== "" && !tszamRegex.test(tszamInput)) {
+        isValid = false;
+        document.getElementById("tszamValidationError").classList.remove("hide");
+    } else {
+        document.getElementById("tszamValidationError").classList.add("hide");
+    }
+
+    // Életkor validálás
+    const eletkorInput = document.getElementById("eletkor").value.trim();
+    const eletkorRegex = /^\d+$/;
+    if (eletkorInput !== "" && !eletkorRegex.test(eletkorInput)) {
+        isValid = false;
+        document.getElementById("eletkorValidationError").classList.remove("hide");
+    } else {
+        document.getElementById("eletkorValidationError").classList.add("hide");
+    }
+
+    // E-mail validálás
+    const emailInput = document.getElementById("email").value.trim();
+    if (
+            emailInput !== "" && (
+            emailInput.length < 5 ||
+            !emailInput.includes("@") ||
+            !emailInput.includes(".")
+        )   
+    ) {
+        isValid = false;
+        document.getElementById("emailValidationError").classList.remove("hide");
+    } else {
+        document.getElementById("emailValidationError").classList.add("hide");
+    }
+
     return isValid;
 }
+
 
 //WebStorage
 document.addEventListener("DOMContentLoaded", function() {
@@ -178,7 +214,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     
 function sortTable(columnIndex, ascending) {
-    let table = document.getElementById("table");
+    let table = document.getElementById("employeeList");
     let rows = Array.from(table.rows).slice(1);
     
     rows.sort((rowA, rowB) => {
@@ -197,7 +233,7 @@ function sortTable(columnIndex, ascending) {
 
 function searchTable() {
     let input = document.getElementById("searchInput").value.toLowerCase();
-    let table = document.getElementById("table");
+    let table = document.getElementById("employeeList");
     let rows = table.getElementsByTagName("tr");
     
     for (let i = 1; i < rows.length; i++) {
