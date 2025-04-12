@@ -23,7 +23,7 @@
             <p>3. feladat</p>
         </aside>
         <div class="content">
-            <h1>Web storage</h1>
+            <h1>Web Storage</h1>
             <div class="storage">
                 <table id="storagetable">
                     <thead>
@@ -46,7 +46,44 @@
             </div>
             <button class="localtorol" onclick="clearStorage()">Storage törlése</button>
             <p>Frissítse az oldalt, a számok növeléséhez!</p>
-            <h1>Web workers</h1>
+            <h1>Web Workers</h1>
+            <div class="WWorkers">
+                <p id="result">Eredmény: </p>
+                <button class="localtorol" onclick="startWorker()">Számolás indítása</button>
+            </div>
+            <h1>Server-Sent Events</h1>
+            <div class="SerEvnents">
+
+            </div>
+            <h1>Geolocation API</h1>
+            <div class="GeoLoc">
+                <p id="location"></p>
+                <button class="localtorol" onclick="getLocation()">Helyzet lekérése</button>
+            </div>
+            <h1>Drag and drop API</h1>
+            <div class="DragandDrop">
+                <div class="drag" id="drag1" draggable="true" ondragstart="drag(event)">
+                    Húzz engem!
+                </div>
+                <div class="drop" id="dropZone" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <span id="dropText">Dobd ide!</span>
+                </div>
+            </div>
+            <h1>Canvas</h1>
+            <div class="Canvas">
+                <canvas id="myCanvas" width="200" height="100"></canvas>
+                <script>
+                    const c = document.getElementById("myCanvas").getContext("2d");
+                    c.fillStyle = "green";
+                    c.fillRect(20, 20, 150, 50);
+                </script>
+            </div>
+            <h1>SVG</h1>
+            <div class="SVG">
+                <svg width="200" height="100">
+                    <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+                </svg>
+            </div>
         </div>
     </div>
     <footer>

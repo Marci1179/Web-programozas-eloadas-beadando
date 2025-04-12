@@ -243,4 +243,24 @@ label.validation-error{
 .hide{
     display:none;
 }
-    
+
+.drag{
+    width: 100px;
+    height: 100px;
+    background-color: #008a3a;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+    margin-bottom: 10px;
+    cursor: grab;
+}
+
+.drop{
+    width: 200px;
+    height: 200px;
+    border: 2px dashed black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #005603;
+}

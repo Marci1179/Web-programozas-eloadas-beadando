@@ -152,6 +152,59 @@ function clearStorage() {
     document.getElementById("localstorage").textContent = localStorage.hits;
 }
 
+//Web Workers
+let worker;
+function startWorker() {
+    if (typeof(Worker) !== "undefined") {
+        if (!worker) {
+            worker = new Worker("worker.js");
+        }
+        worker.onmessage = function(event) {
+            document.getElementById("result").innerText = "Eredmény: " + event.data;
+        };
+        worker.postMessage("start");
+    } else {
+        alert("A böngésződ nem támogatja a Web Worker funkciót.");
+    }
+}
+
+
+//Geolocation
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            pos => {
+                document.getElementById("location").innerText = `Szélesség: ${pos.coords.latitude}, Hosszúság: ${pos.coords.longitude}`;
+            },
+            err => alert("Hiba: " + err.message)
+        );
+    } else {
+        alert("A böngésző nem támogatja.");
+    }
+}
+
+//Drag and Drop
+function allowDrop(ev) {
+    ev.preventDefault(); // Megengedi a drop-ot
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id); // Beállítja az áthúzott adatot
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    const data = ev.dataTransfer.getData("text");
+    const draggedElement = document.getElementById(data);
+    const dropZone = ev.target.closest("#dropZone");
+    const dropText = document.getElementById("dropText");
+    if (dropText) {
+        dropText.remove();
+    }
+    dropZone.appendChild(draggedElement);
+}
+
+
 //ChartJS
 document.addEventListener("DOMContentLoaded", function () {
     const tableBody = document.querySelector("#dataTable tbody");
