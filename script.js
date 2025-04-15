@@ -96,7 +96,7 @@ function validate() {
     } else {
         document.getElementById("tszamValidationError").classList.add("hide");
     }
-
+ 
     // Életkor validálás
     const eletkorInput = document.getElementById("eletkor").value.trim();
     const eletkorRegex = /^\d+$/;
