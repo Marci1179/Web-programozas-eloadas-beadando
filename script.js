@@ -69,7 +69,7 @@ function updateRecord(formData) {
     printArray();
 }
 function onDelete(index) {
-    if (confirm('Are you sure to delete this record ?')) {
+    if (confirm('Biztosan törölni akarod?')) {
         array.splice(index, 1); // Deleting the entry with the specified index
         resetForm();
         printArray();
